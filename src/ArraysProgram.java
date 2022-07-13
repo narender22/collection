@@ -1,4 +1,4 @@
-public class arrays {
+public class ArraysProgram {
     public static int[] srt(int arr[]) {
 //        program to sort an array
         int temp;
