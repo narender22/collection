@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.SortedMap;
 
 class ArrayMethods{
-    public static void palindrome(String str){
+    public static void palindromeCheck(String str){
 //        program to check if the given string is palindrome
         char[] n=new char[str.length()];
         int i=str.length();
