@@ -35,7 +35,7 @@ public class ListProgram {
         System.out.println();
         System.out.println("Palindrome strings");
         for(String i:array){
-            ArrayMethods.palindrome(i);
+            ArrayMethods.palindromeCheck(i);
         }
     }
 }
