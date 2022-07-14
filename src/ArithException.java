@@ -6,8 +6,7 @@ public class ArithException {
             throw new NullPointerException("demo");
         }
         catch (ArithmeticException e){
-            System.out.println(e.toString());
-            System.out.println("Exception hapenned");
+            System.out.println("Arithmetic Exception hapenned");
         }
         catch (NullPointerException e){
             System.out.println("Throws Called");
