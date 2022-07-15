@@ -15,7 +15,9 @@ class A7 implements PrintAble,ShowAble{
 }
 
 public class MultipleInheritance {
-    A7 obj = new A7();
-    obj.print();
-    obj.show();
+    public static void main(String[] args) {
+        A7 obj = new A7();
+        obj.print();
+        obj.show();
+    }
 }
