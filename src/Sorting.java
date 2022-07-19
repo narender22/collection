@@ -1,3 +1,4 @@
+// class to apply selection sort
 class SelectionSort{
 //    repeatedly finding the minimum element from unsorted part and putting it at the beginning.
     public static void sort(int[] arr){
@@ -19,6 +20,7 @@ class SelectionSort{
     }
 }
 
+// class to apply bubble sort
 class BubbleSort{
 //    repeatedly swapping the adjacent elements if they are in the wrong order
     public static void sort(int[] arr){
@@ -35,6 +37,7 @@ class BubbleSort{
     }
 }
 
+// class to apply Insertion sort
 class InsertionSort{
 //    Array is virtually sorted into sorted and unsorted parts
 //    Values from unsorted part are picked and placed at correct position in the sorted part.
@@ -53,6 +56,7 @@ class InsertionSort{
     }
 }
 
+// class to apply merge sort
 class MergeSort{
 //    merge two sub-arrays of arr[]
 //    First sub-array is arr[l…m]
@@ -118,6 +122,7 @@ class MergeSort{
 }
 
 public class Sorting {
+//    to print the contents of an int array
     public static void printArray(int[] arr){
         for (int j : arr) {
             System.out.print(j + " ");
@@ -127,8 +132,20 @@ public class Sorting {
 
     public static void main(String[] args) {
         int[] arr ={4,5,2,7,62,36,6,235,24,1,34,1,9};
+
+//        to apply Insertion sort use:
 //        InsertionSort.sort(arr);
+
+//        to apply Selection sort use:
+//        SelectionSort.sort(arr);
+
+//        to apply Bubble sort use:
+//        BubbleSort.sor(arr);
+
+//        to apply merge sort use:
         MergeSort.sort(arr, 0, arr.length-1);
+
+//        print array after sorting
         System.out.println("sorted array");
         printArray(arr);
 
