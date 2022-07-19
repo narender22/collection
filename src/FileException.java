@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class FileException {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         try {
 //            creating a file and reading from local library ""C:\\Users\\naku274274\\Desktop\\gt.txt""
             FileReader file=new FileReader("C:\\Users\\naku274274\\Desktop\\gt.txt");
