@@ -1,7 +1,5 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.SortedMap;
 
 class ArrayMethods{
     public static void palindromeCheck(String str){
@@ -22,11 +20,11 @@ class ArrayMethods{
 
 public class ListProgram {
     public static void main(String[] args) {
-        List<String> palList = new ArrayList<String>();
+        List<String> palList = new ArrayList<>();
         palList.add("Narender");
         palList.add("AbccbA");
         palList.add("AbcddcBa");
-        String[] array=palList.toArray(new String[palList.size()]);
+        String[] array=palList.toArray(new String[0]);
 
         System.out.println("List");
         for(String i:array){
