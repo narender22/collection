@@ -1,4 +1,6 @@
-// first method to print contents
+/**
+ * first method to print contents
+ */
 interface PrintAble{
     /**
      * method to print some required content
@@ -14,20 +16,28 @@ interface ShowAble{
     void methodToPrint();
 }
 
-// Class to implement multiple inheritance
-class A7 implements PrintAble,ShowAble{
-//    declare methodToPrint body from the interfaces
+    /**
+     * Class to implement multiple inheritance
+     */
+class MultipleInheritanceClass implements PrintAble,ShowAble{
+        /**
+         * declare methodToPrint body from the interfaces
+         */
     public void methodToPrint(){
         System.out.println("Printable called");
     }
 }
 
 public class MultipleInheritance {
+    /**
+     * main method
+     * @param args
+     */
     public static void main(String[] args) {
-//      object of type A7 to test Multiple inheritance
-        A7 obj = new A7();
+//      object named inheritanceObj of type MultipleInheritanceClass to test Multiple inheritance
+        MultipleInheritanceClass inheritanceObj = new MultipleInheritanceClass();
 //        call methodToPrint object from first interface
-        obj.methodToPrint();
+        inheritanceObj.methodToPrint();
 
     }
 }

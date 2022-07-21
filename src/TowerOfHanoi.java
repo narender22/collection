@@ -1,15 +1,21 @@
+/**
+ * program to solve tower of hanoi problem
+ */
 public class TowerOfHanoi {
-    static void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod){
+    static void towerOfHanoi(int n, char fromRod, char toRod, char auxRod){
         if (n==0){
             return;
         }
-        towerOfHanoi(n-1, from_rod, aux_rod, to_rod);
-        System.out.println("Move disk "+n+ " from rod " + from_rod + " to rod "+ to_rod);
-        towerOfHanoi(n-1, aux_rod, to_rod, from_rod);
+        towerOfHanoi(n-1, fromRod, auxRod, toRod);
+        System.out.println("Move disk "+n+ " from rod " + fromRod + " to rod "+ toRod);
+        towerOfHanoi(n-1, auxRod, toRod, fromRod);
     }
 
     public static void main(String[] args) {
-        int n=4;
-        towerOfHanoi(n, 'A', 'C', 'B');
+        /*
+          let us find moves for number of plates to be 4.
+         */
+        int noOfPlates=4;
+        towerOfHanoi(noOfPlates, 'A', 'C', 'B');
     }
 }

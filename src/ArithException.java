@@ -1,6 +1,9 @@
-// program to test Exception
+/**
+ * program to test Exception
+ */
 public class ArithException {
     public static void main(String[] args) {
+//        some testing variables
         int a=5, b=1;
 //        try block will throw exception
         try{
