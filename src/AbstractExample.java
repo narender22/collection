@@ -9,7 +9,6 @@ abstract class Bank{
 
     /**
      * this method will return the name of the bank
-     * @return
      */
     abstract String getName();
 }
@@ -20,7 +19,6 @@ abstract class Bank{
 class SBI extends Bank{
     /**
      * SBI bank has 7% rate of interest
-     * @return
      */
     int getRateOfInterest(){
         return 7;
@@ -28,7 +26,6 @@ class SBI extends Bank{
 
     /**
      * this will get us the bank name
-     * @return
      */
     String getName(){
         return "SBI";
@@ -41,7 +38,6 @@ class SBI extends Bank{
 class PNB extends Bank{
     /**
      * interest in PNB is 8% pa
-     * @return
      */
     int getRateOfInterest(){
         return 8;
@@ -49,7 +45,6 @@ class PNB extends Bank{
 
     /**
      * this will give us the bank name
-     * @return
      */
     String getName(){
         return "PNB";
@@ -62,7 +57,6 @@ class PNB extends Bank{
 public class AbstractExample {
     /**
      * main method
-     * @param args
      */
     public static void main(String[] args) {
 //        object for SBI bank

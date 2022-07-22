@@ -1,59 +1,92 @@
-// program to apply methods on an array
+/**
+ * program to apply methods on an array
+  */
 public class ArraysProgram {
-//    method to sort the contents of an array
-    public static int[] sortMethod(int[] arr) {
-//        program to sort an array
-        for (int i = 0; i < arr.length-1; i++) {
-            for (int j = i+1; j < arr.length; j++) {
+/**
+ * method to sort the contents of an array
+ */
+    static int[] sortMethod(int[] array) {
+        /*
+         * method to sort an array
+         */
+        for (int i = 0; i < array.length-1; i++) {
+            for (int j = i+1; j < array.length; j++) {
+
+//                temporary variable for switching values.
                 int temp;
-                if (arr[i] > arr[j]) {
-                    temp = arr[j];
-                    arr[j] = arr[i];
-                    arr[i] = temp;
+//                switching 2 variables
+                if (array[i] > array[j]) {
+                    temp = array[j];
+                    array[j] = array[i];
+                    array[i] = temp;
                 }
             }
         }
-        return arr;
+        return array;
     }
 
-//    method to reverse an array
-    public static int[] reverseMethod(int[] arr){
-//        to reverse an array
-        int[] nar=new int[arr.length];
-        int l=arr.length;
-        for (int j : arr) {
-            nar[l - 1] = j;
+    /**
+     * method to reverse an array
+     */
+    static int[] reverseMethod(int[] array){
+//        another array of same size to store sorted array
+
+        int[] newArray=new int[array.length];
+        int l=array.length;
+        for (int j : array) {
+            newArray[l - 1] = j;
             l = l - 1;
         }
-
-        return nar;
+        return newArray;
     }
 
-//    method to print the contents of an array
-    public static void printMethod(int[] arr){
-        for(int i:arr){
+    /**
+     *  method to print the contents of an array
+     */
+    static void printMethod(int[] array){
+        for(int i:array){
             System.out.print(i + " ");
         }
     }
 
+    /**
+     * main method
+     */
     public static void main(String[] args) {
-        int[] arr = {5,21,35,6,2,34,6,21,3};
-//      print the array before making any changes
+/*
+        some array for testing methods.
+ */
+        int[] array = {5,21,35,6,2,34,6,21,3};
+
+/*
+      print the array before making any changes
+ */
         System.out.println("old array");
-        printMethod(arr);
+        printMethod(array);
 
-//        reverse the given array
         System.out.println();
-        int[] reverar=reverseMethod(arr);
 
-//        print the reversed array
+/*
+        reverse the given array
+ */
+        int[] reverar=reverseMethod(array);
+
+/*
+        print the reversed array
+ */
         System.out.println("reversed array");
         printMethod(reverar);
 
         System.out.println();
 
-//        print the array after sorting
-        int[] sortarr=sortMethod(arr);
+/*
+      sorting the given array
+ */
+        int[] sortarr=sortMethod(array);
+
+        /*
+         print the array after sorting
+         */
         System.out.println("sorted array");
         printMethod(sortarr);
     }
