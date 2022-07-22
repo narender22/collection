@@ -33,6 +33,9 @@ class TestAnnotationClass {
  * Accessing annotation
  */
 public class AnnotationExample {
+    /**
+     * main block
+     */
     public static void main(String[] args) throws Exception {
 
 //        object to test above created annotation.

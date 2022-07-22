@@ -2,6 +2,9 @@
  * program to test Exception
  */
 public class ArithException {
+    /**
+     * main block
+     */
     public static void main(String[] args) {
 
         // some testing variables

@@ -56,7 +56,7 @@ class PNB extends Bank{
  */
 public class AbstractExample {
     /**
-     * main method
+     * main block
      */
     public static void main(String[] args) {
 //        object for SBI bank

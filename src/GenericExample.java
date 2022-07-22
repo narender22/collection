@@ -50,16 +50,22 @@ public class GenericExample {
      * main method
      */
     public static void main(String[] args) {
-//        list1 for Rectangle class
+/*
+        list1 for Rectangle class
+ */
         List<Rectangle> list1 = new ArrayList<>();
         list1.add(new Rectangle());
 
-//        list2 for Circle class
+/*
+        list2 for Circle class
+ */
         List<Circle> list2 = new ArrayList<>();
         list2.add(new Circle());
         list2.add(new Circle());
 
-//        call the draw shape method on both lists
+/*
+        call the draw shape method on both lists
+ */
         drawShapes(list1);
         drawShapes(list2);
     }

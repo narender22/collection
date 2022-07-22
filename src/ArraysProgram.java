@@ -50,7 +50,7 @@ public class ArraysProgram {
     }
 
     /**
-     * main method
+     * main block
      */
     public static void main(String[] args) {
 /*

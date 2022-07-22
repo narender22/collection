@@ -7,7 +7,7 @@ import java.io.IOException;
  */
 public class FileException {
     /**
-     * main method
+     * main block
      */
     public static void main(String[] args) {
         /*
