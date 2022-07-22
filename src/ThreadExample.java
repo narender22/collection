@@ -1,18 +1,24 @@
 /**
  * Program to test working of threads
-  */
+ */
 public class ThreadExample {
-//    initialize a counter
-    int counter=1;
+/*
+    initialize a counter
+ */
+    int counter=2;
+//    declare a global static variable as NUM
     static int NUM;
 
     /**
      * method to print odd numbers
      */
-    public void displayOddNumber(){
-//        we need to use synchronized blocks otherwise we will get an exception
+    void displayOddNumber(){
+/*
+        we need to use synchronized blocks otherwise we will get an exception
+ */
         synchronized (this){
             while (counter<NUM){
+//                if counter is even, wait
                 while (counter % 2 == 0){
                     try {
                         wait();
@@ -21,11 +27,11 @@ public class ThreadExample {
                         ex.printStackTrace();
                     }
                 }
-                //            printing the number
+                //            printing the odd number
                 System.out.println(counter + " ");
 //            increment the counter
                 counter = counter + 1;
-//            notify the waiting thread
+//            notify the waiting thread to continue
                 notify();
             }
         }
@@ -34,9 +40,10 @@ public class ThreadExample {
     /**
      * method to print even numbers
      */
-    public void displayEvenNumber(){
+    void displayEvenNumber(){
         synchronized (this){
             while (counter < NUM){
+//                if counter is odd, wait
                 while (counter % 2 == 1){
                     try {
                         wait();
@@ -45,28 +52,36 @@ public class ThreadExample {
                         ex.printStackTrace();
                     }
                 }
-//                print the number
+//                print the even number
                 System.out.print(counter + " ");
 //                increment the counter
                 counter = counter + 1;
-//                notify the second thread
+//                notify the second thread to continue
                 notify();
             }
         }
     }
 
-//    main thread
+/**
+ * main thread
+ */
     public static void main(String[] args) {
-        NUM = 20;
+/*
+        define the global static variable as NUM
+ */
+        NUM = 21;
 
 //        creating an object of ThreadExample
         ThreadExample th= new ThreadExample();
+
 //        creating thread1
-        Thread th1=new Thread(th::displayEvenNumber);
+        Thread thread1=new Thread(th::displayEvenNumber);
 
 //        creating thread 2
-        Thread th2=new Thread(th::displayOddNumber);
-        th1.start();
-        th2.start();
+        Thread thread2=new Thread(th::displayOddNumber);
+
+//        starts both threads
+        thread1.start();
+        thread2.start();
     }
 }

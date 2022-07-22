@@ -1,36 +1,49 @@
-// class to apply selection sort
-class SelectionSort{
-//    repeatedly finding the minimum element from unsorted part and putting it at the beginning.
-    public static void sort(int[] arr){
-        int n=arr.length;
+/**
+ * class to apply selection sort
+ */
+class SelectionSort {
+    /*
+        apply selection sort by repeatedly finding the minimum element from unsorted part
+        and putting it at the beginning.
+     */
+    void sort(int[] array) {
+//        integer len with a value as length of array
+        int len = array.length;
 //        one by one move to boundary of unsorted sub array
-        for (int i=0; i<n-1; i++){
+        for (int i = 0; i < len - 1; i++) {
 
-            int min_idx = i;
-            for (int j=i+1; j < n; j++){
-                if (arr[j] < arr[min_idx])
-                    min_idx = j;
+            int minIdx = i;
+            for (int j = i + 1; j < len; j++) {
+                if (array[j] < array[minIdx])
+                    minIdx = j;
             }
 
 //            swap the found minimum element wth the first
-            int temp = arr[min_idx];
-            arr[min_idx] = arr[i];
-            arr[i] = temp;
+//            temporary variable temp for swapping
+            int temp = array[minIdx];
+            array[minIdx] = array[i];
+            array[i] = temp;
         }
     }
 }
 
 // class to apply bubble sort
-class BubbleSort{
-//    repeatedly swapping the adjacent elements if they are in the wrong order
-    public static void sort(int[] arr){
-        int n=arr.length;
-        for (int i=0; i < n-1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+class BubbleSort {
+    /*
+        we can apply bubble sort by repeatedly swapping the adjacent
+        elements if they are in the wrong order
+     */
+    public static void sort(int[] array) {
+//        integer len with a value as length of array
+        int len = array.length;
+        for (int i = 0; i < len - 1; i++) {
+            for (int j = 0; j < len - i - 1; j++) {
+//                swap the variable if condition is true
+                if (array[j] > array[j + 1]) {
+//                    temporary integer temp for swapping
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
                 }
             }
         }
@@ -38,42 +51,53 @@ class BubbleSort{
 }
 
 // class to apply Insertion sort
-class InsertionSort{
-//    Array is virtually sorted into sorted and unsorted parts
-//    Values from unsorted part are picked and placed at correct position in the sorted part.
-    public static void sort(int[] arr){
-        int n=arr.length;
-        for (int i=1; i < n; ++i){
-            int key = arr[i];
-            int j=i-1;
-
-            while (j>=0 && arr[j] > key){
-                arr[j+1] = arr[j];
-                j=j-1;
+class InsertionSort {
+    /*
+        in case of insertion sort
+        array is virtually sorted into sorted and unsorted parts
+        values from unsorted part are picked and placed at correct position in the sorted part.
+     */
+    public static void sort(int[] array) {
+//        integer len with a value as length of array
+        int len = array.length;
+        for (int i = 1; i < len; ++i) {
+//            store the selected variable in an integer variable named selected
+            int selected = array[i];
+            int j = i - 1;
+            while (j >= 0 && array[j] > selected) {
+                array[j + 1] = array[j];
+                j = j - 1;
             }
-            arr[j+1] = key;
+            array[j + 1] = selected;
         }
     }
 }
 
 // class to apply merge sort
-class MergeSort{
-//    merge two sub-arrays of arr[]
-//    First sub-array is arr[l…m]
-//    Second array is arr[m+1..r]
-    public static void merge(int[] arr, int l, int m, int r) {
+class MergeSort {
+/*
+    to apply merge sort
+    merge two sub-arrays of arr[]
+    First sub-array is arr[l…m]
+    Second array is arr[m+1..r]
+ */
+
+    /**
+     * method to merge arrays
+     */
+    public static void merge(int[] arr, int left, int middle, int right) {
 //      Find sizes of two sub-arrays to be merged
-        int n1 = m - l + 1;
-        int n2 = r - m;
+        int size1 = middle - left + 1;
+        int size2 = right - middle;
 
 //        create temp arrays
-        int[] L = new int[n1];
-        int[] R = new int[n2];
+        int[] tempLeft = new int[size1];
+        int[] tempRight = new int[size2];
 
 //        copy data to temp arrays
-        System.arraycopy(arr, l, L, 0, n1);
-        for (int j = 0; j < n2; ++j)
-            R[j] = arr[m + 1 + j];
+        System.arraycopy(arr, left, tempLeft, 0, size1);
+        for (int j = 0; j < size2; ++j)
+            tempRight[j] = arr[middle + 1 + j];
 
 //        merge the temp arrays
 
@@ -81,49 +105,52 @@ class MergeSort{
         int i = 0, j = 0;
 
 //        initial index of merged sub-array array
-        int k = l;
-        while (i < n1 && j < n2) {
-            if (L[i] <= R[j]) {
-                arr[k] = L[i];
+        int k = left;
+        while (i < size1 && j < size2) {
+            if (tempLeft[i] <= tempRight[j]) {
+                arr[k] = tempLeft[i];
                 i++;
             } else {
-                arr[k] = R[j];
+                arr[k] = tempRight[j];
                 j++;
             }
             k++;
         }
 
 //        copy remaining elements fo L{} if any
-        while (i < n1){
-            arr[k] = L[i];
+        while (i < size1) {
+            arr[k] = tempLeft[i];
             i++;
             k++;
         }
 
-        while (j<n2){
-            arr[k] = R[j];
+        while (j < size2) {
+            arr[k] = tempRight[j];
             j++;
             k++;
         }
     }
-    public static void sort(int[] arr, int l, int r){
-        if (l < r){
+
+    public static void sort(int[] array, int left, int right) {
+        if (left < right) {
 //            find the middle point
-            int m=l+ (r-l)/2;
+            int middle = left + (right - left) / 2;
 
 //            sort first and second halves
-            sort(arr, l, m);
-            sort(arr, m+1, r);
+            sort(array, left, middle);
+            sort(array, middle + 1, right);
 
 //            merge the sorted halves
-            merge(arr, l, m, r);
+            merge(array, left, middle, right);
         }
     }
 }
 
 public class Sorting {
-//    to print the contents of an int array
-    public static void printArray(int[] arr){
+    /**
+     * to print the contents of an int array
+      */
+    public static void printArray(int[] arr) {
         for (int j : arr) {
             System.out.print(j + " ");
         }
@@ -131,7 +158,7 @@ public class Sorting {
     }
 
     public static void main(String[] args) {
-        int[] arr ={4,5,2,7,62,36,6,235,24,1,34,1,9};
+        int[] arr = {4, 5, 2, 7, 62, 36, 6, 235, 24, 1, 34, 1, 9};
 
 //        to apply Insertion sort use:
 //        InsertionSort.sort(arr);
@@ -143,7 +170,7 @@ public class Sorting {
 //        BubbleSort.sor(arr);
 
 //        to apply merge sort use:
-        MergeSort.sort(arr, 0, arr.length-1);
+        MergeSort.sort(arr, 0, arr.length - 1);
 
 //        print array after sorting
         System.out.println("sorted array");
