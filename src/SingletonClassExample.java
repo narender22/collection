@@ -56,6 +56,7 @@ public class SingletonClassExample {
         System.out.println(var3.hashCode());
 
         if (var1 == var2 && var2 == var3){
+//            this proves the concept of singleton class.
             System.out.println("Three objects points to same memory location");
         }
         else {
